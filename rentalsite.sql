@@ -26,7 +26,7 @@ CREATE TABLE VideoForRent(
     VideoNo varchar(15) NOT NULL,
     available varchar(15) Not NULL,
     catalogNo varchar(1) Not NULL, 
-    primary key(videoNo),
+    primary key(VideoNo),
     foreign key(catalogNo) references video(catalogNo)
 )Engine=InnoDB;
 
@@ -43,9 +43,9 @@ CREATE TABLE Member(
 
 CREATE TABLE RentalAgreement(
     RentalNo varchar(1) NOT NULL, 
-    memberNo varchar(15) NOT NULL,
-    VideonO varchar(15) NOT NULL,
-    dateOut DATETIME NOT NULL,
+    memberNo varchar(15) NULL,
+    VideoNo varchar(15) NOT NULL,
+    dateOut DATETIME NULL,
     dateReturn DATETIME NULL, 
     primary key(RentalNo),
     foreign key(memberNo) references Member(memberNo),
@@ -65,11 +65,14 @@ INSERT INTO video VALUES('3', 'Shazam', 'SSL', 'Action', '3', '20', '30');
 
 INSERT INTO videoforrent VALUES('1', 'NO', '1');
 INSERT INTO videoforrent VALUES('2', 'YES', '1');
-INSERT INTO videoforrent VALUES('4', 'YES', '2');
-INSERT INTO videoforrent VALUES('3', 'YES', '3');
+INSERT INTO videoforrent VALUES('3', 'YES', '2');
+INSERT INTO videoforrent VALUES('4', 'YES', '3');
 
 INSERT INTO Member VALUES('1', 'David', 'Martinez','M', '2000-04-21', '450 Stone, Houston, TX', '2015-05-17');
 INSERT INTO Member VALUES('2', 'Emiliano', 'Bayli','M', '1998-03-27', '449 Stone, Houston, TX', '2015-06-23');
 INSERT INTO Member VALUES('3', 'Sofía', 'Hernandez','F', '1997-06-27', '731 Fondren, Houston, TX', '2016-03-01');
 
-INSERT INTO RentalAgreement VALUES('1', '2', '1', '2019-03-05', null)
+INSERT INTO RentalAgreement VALUES('1', '2', '1', '2019-03-05', null);
+INSERT INTO RentalAgreement VALUES('2', null, '1', NULL, null);
+INSERT INTO RentalAgreement VALUES('3', null, '2', NULL, null);
+INSERT INTO RentalAgreement VALUES('4', null, '3', NULL, null);
